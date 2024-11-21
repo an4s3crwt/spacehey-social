@@ -4,7 +4,7 @@ require_once '../models/db.php';  // Incluir la conexión a la base de datos
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    
+
     switch ($action) {
         case 'register':
             registerUser();
@@ -12,14 +12,18 @@ if (isset($_GET['action'])) {
         case 'login':
             loginUser();
             break;
+        //case 'profile':
+          //  showUserProfile();
+            //break;
         default:
             header('Location: ../index.php');
             break;
     }
 }
 
-function registerUser() {
-    global $db;  // Hacer que la variable $db sea accesible
+function registerUser()
+{
+    global $db; // Hacer que la variable $db sea accesible
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
@@ -28,7 +32,7 @@ function registerUser() {
 
         // Validar si el correo ya está registrado
         $stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
-        $stmt->bindParam(1, $email);  // Usar bindParam() para los parámetros
+        $stmt->bindParam(1, $email);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -52,26 +56,29 @@ function registerUser() {
         }
     }
 }
-
-function loginUser() {
-    global $db;  // Hacer que la variable $db sea accesible
+function loginUser()
+{
+    global $db;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+ 
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Verificar si el usuario existe
-        $stmt = $db->prepare("SELECT id, password FROM users WHERE email = ?");
+        $stmt = $db->prepare("SELECT id, username, email, password FROM users WHERE email = ?");
         $stmt->bindParam(1, $email);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+
         if ($result) {
-            // Verificar si la contraseña es correcta
             if (password_verify($password, $result['password'])) {
                 session_start();
                 $_SESSION['user_id'] = $result['id'];
-                header("Location: /entorno-SERVIDOR/hola-mundo/spacehey-clon/public/views/index.php"); // Redirigir al perfil
+                $_SESSION['username'] = $result['username'];
+                $_SESSION['email'] = $result['email'];
+
+                // Redirigir a la página principal después del login
+                header("Location: /entorno-SERVIDOR/hola-mundo/spacehey-clon/public/views/index.php");
             } else {
                 echo "Contraseña incorrecta.";
             }
@@ -80,4 +87,28 @@ function loginUser() {
         }
     }
 }
+/*
+function showUserProfile()
+{
+    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ../public/views/login.php");
+        exit();
+    }
+
+    // Obtener datos de la sesión y sanitizarlos
+    $username = htmlspecialchars($_SESSION['username']);
+    $email = htmlspecialchars($_SESSION['email']);
+
+    // Reemplazar los datos en la vista
+    $profileDetails = [
+        'username' => $username,
+        'email' => $email
+    ];
+
+
+}
+*/
+
+
 ?>

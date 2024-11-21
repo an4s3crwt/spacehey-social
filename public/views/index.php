@@ -1,10 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirigir al login si no está autenticado
+    exit();
+}
+
+$username = htmlspecialchars($_SESSION['username']);
+$email = htmlspecialchars($_SESSION['email']);
+?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $username; ?>'s Profile</title>
     <link rel="stylesheet" href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/public/assets/css/styles.css">
 </head>
 
@@ -18,9 +28,8 @@
                         <img class="logo " src="https://static.spacehey.net/img/logo_optimized.svg" alt="" style="aspect-ratio: 55/14;">
                     </a>
                 </div>
-                
                 <div class="right">
-                 <form action="https://spacehey.com/logout" method="post" class="logout-form">
+                 <form action="../index.php?page=logout" method="post" class="logout-form">
                     <button class="logout-btn" type="submit" name="submit">LogOut</button>
                 </form>
                 </div>
@@ -28,7 +37,6 @@
             <ul class="links">
                 <li class="active"><a href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/public/views/home.php">Home</a></li>
                 <li class=""><a href="#">Profile</a></li>
-              
                 <li class=""><a href="#">Messages</a></li>
                 <li class=""><a href="#">Groups</a></li>
                 <li class=""><a href="#">Contact</a></li>
@@ -42,8 +50,9 @@
 
                 <div class="col w-40 left">
                     <span itemprop="name">
-                        <h1>Ana</h1>
+                   <h1><?php echo $username?></h1></a>
                     </span>
+                    
                     <div class="general-about">
                         <div class="profile-pic">
                             <img class="pfp-fallback" src="https://static.spacehey.net/img/default/profilepic.png" alt="profile picture">
@@ -61,7 +70,7 @@
                     </div>
                     <div class="contact">
                         <div class="heading">
-                            <h4>Contacting Ana</h4>
+                            <h4>Contacting <?php echo $username ?></h4>
                         </div>
                         <div class="inner">
                             <div class="f-row">
@@ -113,7 +122,7 @@
                     </div>
                     <div class="table-section">
                         <div class="heading">
-                            <h4>Ana's Interests</h4>
+                            <h4><?php echo $username?>´s Interests</h4>
                         </div>
                         <div class="inner">
                             <table class="details-table" cellspacing="3" cellpadding="3">
@@ -204,12 +213,12 @@
                 </div>
                 <div class="col right">
                     <div class="blog-preview">
-                        <h4>Ana's Latest Blog Entries [<a href="https://blog.spacehey.com/user?id=2907759">View Blog</a>]</h4>
+                        <h4><?php echo $username  ?>'s Latest Blog Entries [<a href="https://blog.spacehey.com/user?id=2907759">View Blog</a>]</h4>
                       
                     </div>
                     <div class="blurbs">
                         <div class="heading">
-                            <h4>Ana's Blurbs</h4>
+                            <h4><?php echo $username ?>'s Blurbs</h4>
                         </div>
                         <div class="inner">
                             <div class="section">
@@ -232,11 +241,11 @@
                     </div>
                     <div class="friends">
                         <div class="heading">
-                            <h4>Ana's Friend Space</h4>
+                            <h4><?php echo $username ?>'s Friend Space</h4>
                             <a class="more" href="/friends?id=2907759">[view all]</a>
                         </div>
                         <div class="inner">
-                            <p><b>Tiny has <span class="count">3</span> friends.</b></p>
+                            <p><b><?php echo $username ?> has <span class="count">3</span> friends.</b></p>
                             <div class="friends-grid">
                                 <div class="person">
                                     <a href="/profile?id=2906941">
@@ -267,7 +276,7 @@
                     </div>
                     <div class="friends" id="comments">
                         <div class="heading">
-                            <h4>Ana's Friends Comments</h4>
+                            <h4><?php echo $username ?>'s Friends Comments</h4>
                         </div>
                         <div class="inner">
                             <p>

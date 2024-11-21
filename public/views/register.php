@@ -23,7 +23,7 @@
 
         <button type="submit">Registrarse</button>
     </form>
-    <p>¿Ya tienes cuenta? <a href="?page=login">Iniciar sesión</a></p>
+    <p>¿Ya tienes cuenta? <a href="../index.php?page=login">Iniciar sesión</a></p>
 </body>
 </html>
 

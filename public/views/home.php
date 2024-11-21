@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirigir al login si no está autenticado
+    exit();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -171,7 +181,7 @@
                 </a>
             </div>
             <div class="right">
-                <form action="https://spacehey.com/logout" method="post" class="logout-form">
+                <form action="/entorno-SERVIDOR/hola-mundo/spacehey-clon/controllers/UserController.php?action=logout" method="POST" class="logout-form">
                     <button class="logout-btn" type="submit" name="submit">LogOut</button>
                 </form>
             </div>

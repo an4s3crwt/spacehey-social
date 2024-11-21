@@ -26,7 +26,7 @@
             </div>
         </form>
 
-        <p>¿No tienes una cuenta? <a href="index.php?page=register">Regístrate aquí</a></p>
+        <p>¿No tienes una cuenta? <a href="../index.php?page=register">Regístrate aquí</a></p>
 
         <!-- Mostrar mensajes de error si los hay -->
         <?php
