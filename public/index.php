@@ -3,6 +3,12 @@
 
 session_start();  // Iniciar sesión si es necesario
 
+// Comprobar si ya hay una sesión activa
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../public/views/register.php?page=register");  // Redirigir al formulario de registro
+    exit;
+}
+
 require_once '../models/db.php';  // Conexión a la base de datos
 require_once '../controllers/UserController.php';  // Controlador de usuario
 require_once '../controllers/BlogController.php';  // Controlador de blogs
@@ -12,7 +18,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
 switch ($page) {
     case 'profile':
-        include '../public/views/profile.php';
+        include '../public/views/index.php';
         break;
     case 'contact':
         include '../public/views/contact.php';

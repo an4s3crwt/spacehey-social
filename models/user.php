@@ -12,18 +12,46 @@ class User {
     }
 
     //REGISTER
-    public function register($username, $email, $password){
-        $sql = "insert into {$this->table}(username,email,password) values (?,?,?)";
-        $res = $this->db->prepare($sql); 
-
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
-        $res->execute([
-            $username,
-            $email,
-            $hashed
-        ]);
-
+    function registerUser() {
+        global $db;  // Hacer que la variable $db sea accesible
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+    
+            // Validar si el correo ya está registrado
+            $stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
+            $stmt->bindParam(1, $email);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($result) {
+                echo "El correo electrónico ya está registrado.";
+            } else {
+                // Encriptar la contraseña
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+                // Insertar el nuevo usuario en la base de datos
+                $stmt = $db->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+                $stmt->bindParam(1, $username);
+                $stmt->bindParam(2, $email);
+                $stmt->bindParam(3, $hashed_password);
+    
+                if ($stmt->execute()) {
+                    // Loguear automáticamente al usuario después de registrarse
+                    $user_id = $db->lastInsertId();  // Obtener el ID del nuevo usuario
+                    session_start();
+                    $_SESSION['user_id'] = $user_id;  // Guardar el ID del usuario en la sesión
+                    header("Location: ../public/views/index.php");  // Redirigir al perfil
+                    exit;
+                } else {
+                    echo "Error al registrar el usuario.";
+                }
+            }
+        }
     }
+    
 
 
     //LOGIN
