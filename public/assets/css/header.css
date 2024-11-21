@@ -1,0 +1,67 @@
+/* Header */
+nav {
+    color: white;
+    font-size: 80%;
+}
+
+nav .top {
+    background: #000000;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav .top a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav .top a:hover {
+    text-decoration: underline;
+}
+
+nav .top .left img {
+    margin: 0 0 0 6px;
+    width: 140px;
+    height: 42px;
+}
+
+nav .links {
+    background-color: #000000;
+    padding: 5px 16px;
+    text-align: center;
+    margin-top: 60px; /* Espacio debajo del header */
+}
+
+nav .links {
+    margin: 0;
+    list-style: none;
+}
+
+nav .links li {
+    display: inline-block;
+}
+
+nav .links li:not(:last-child)::after {
+    content: " | ";
+    color: rgb(255, 255, 255);
+}
+
+nav .links li {
+    min-height: 1.4em;
+}
+
+nav .links a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+nav .links a:hover {
+    color: #00aced;
+}

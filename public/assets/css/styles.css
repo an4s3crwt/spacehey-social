@@ -1,0 +1,376 @@
+  
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    line-height: 1.225;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #e3e3e3;
+    background-color: var(--gray);
+    font-family: verdana, arial, sans-serif, helvetica;
+  }
+  .container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto 10px;
+  }
+  .container.full-width {
+    width: auto;
+  }
+
+ 
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #c00;
+   
+  }
+  p,
+  ol li,
+  ul:not(nav .links):not(footer .links) li {
+    font-size: 0.875em;
+    font-size: max(0.875em, 12px);
+  }
+  ol li ol li {
+    font-size: 100%;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  nav {
+    color: white;
+    font-size: 80%;
+  
+  }
+
+
+  nav .top {
+    background: #000000;
+    padding: 15px 10px 14px 10px;
+    display: flex;
+    position: relative;
+  }
+  nav .top a {
+    text-decoration: none;
+    color: inherit;
+  }
+  nav .top a:hover {
+    text-decoration: underline;
+  }
+  nav .top div {
+    display: inline-block;
+    
+  }
+  
+  nav .top .left img {
+    margin: 0 0 0 6px;
+  }
+  nav .top .left .logo {
+    width: 140px;
+    height: 42px;
+  }
+  
+
+  nav .links {
+    background-color: #000000;
+    padding: 5px 16px;
+  }
+ 
+  nav .links{
+    margin: 0;
+    list-style: none;
+  }
+  
+  nav .links li {
+    display: inline-block;
+  }
+  
+  nav .links li:not(:last-child)::after {
+    content: " | ";
+    color: rgb(255, 255, 255);
+  }
+  nav .links li {
+    min-height: 1.4em;
+  }
+  nav .links a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+  nav .links a:hover {
+    color: #000000;
+  }
+ 
+  /*MAIN*/
+  main {
+    background: white;
+    color: black; /*letras*/
+    padding: 6px 0px;
+    font-size: 100%;
+  }
+  main .left,
+  main .right {
+    padding: 10px;
+  }
+  
+  footer .copyright {
+    font-size: 80%;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+  }
+
+  
+  
+  .profile h1 {
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+  }
+  .general-about .profile-pic {
+    display: block;
+    float: left;
+    margin: 0 15px 8px 0;
+    height: 160px;
+  }
+  .general-about .profile-pic img {
+    max-width: 160px;
+    max-height: 160px;
+  }
+  .general-about .details {
+    display: block;
+  }
+  .general-about .details.below {
+    width: 100%;
+    display: inline-block;
+  }
+  .profile .mood {
+    width: 100%;
+    display: inline-block;
+  }
+  .profile .mood p {
+    margin: 0 0 8px 0;
+  }
+  .profile .contact,
+  .profile .url-info,
+  .profile .table-section,
+  .setting-section,
+  .home-actions {
+    width: 100%;
+    border: 2px solid #000000;
+    margin: 10px 0;
+  }
+
+  .profile .contact .heading,
+  .profile .table-section .heading,
+  .setting-section .heading,
+  .home-actions .heading {
+    background: #000000;
+  
+    color: white;
+    padding: 2px 7px;
+  }
+  .profile .contact .heading h4,
+  .profile .table-section .heading h4,
+  .profile .blurbs .heading h4,
+  .profile .friends .heading h4,
+  .blog-entry .comments .heading h4,
+  .bulletin .comments .heading h4,
+  .home-actions .heading h1,
+  .setting-section .heading h4,
+  .statistics .heading h4 {
+    margin: 0;
+    display: inline-block;
+  }
+  .profile .contact .f-row {
+    margin: 7px;
+    font-weight: bold;
+    font-size: 0.875em;
+  }
+  .profile .url-info {
+    padding: 4px 7px;
+  }
+  .profile .url-info p {
+    font-size: 100%;
+    margin: 0;
+    word-break: break-all;
+  }
+  
+  table.details-table {
+    width: 100%;
+  }
+  .details-table td:first-child {
+    background: #ffffff;
+   
+    color: #000000;
+
+    font-weight: bold;
+    width: 33%;
+  }
+  .details-table td {
+    background: #ffffff;
+ 
+    vertical-align: top;
+  }
+  
+  .details-table td p {
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .details-table td * {
+    max-width: 100%;
+  }
+  .profile .blurbs {
+    margin: 20px 0;
+  }
+  .profile .blurbs .heading,
+  .profile .friends .heading {
+    background: #000000;
+  
+    color: #ffffff;
+   
+    padding: 2px 7px;
+  }
+  .blog-entry .comments .heading,
+ .comments .heading {
+    padding: 10px 7px;
+    border-top: 2px solid rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+  }
+  .blog-category .right h2 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+ 
+  
+  .logout-btn {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    cursor: pointer;
+    user-select: text;
+    text-decoration: none;
+
+  }
+  .logout-btn,
+  .logout-form {
+    color: white;
+    display: inline-block;
+    font-size: 100%;
+  }
+  
+  .logout-btn:hover,
+  .logout-btn:active {
+    color: inherit;
+  }
+  .profile .blurbs .inner,
+  .profile .friends .inner,
+  .blog-entry .comments .inner,
+   .comments .inner {
+    padding: 7px;
+  }
+ 
+  .profile .blurbs .section {
+    margin-bottom: 14px;
+  }
+  .profile .blurbs .section h4 {
+    margin: 0;
+    color: #000000;
+    
+  }
+  .profile .blurbs .section p,
+  .profile .friends p,
+  .blog-entry .comments p,
+ .comments p {
+    margin: 0 0 8px 0;
+  }
+  .profile .friends .person {
+    width: 105px;
+    display: inline-block;
+    padding: 0 10px 15px 0;
+  }
+  .profile .friends .person p {
+    color: #666666;
+    font-weight: bold;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 100%;
+    text-align: center;
+  }
+  .profile .friends .person img:not(.icon) {
+    max-width: 95px;
+    max-height: 95px;
+    display: block;
+    margin: 0 auto;
+  }
+  .count {
+    color: #D32626;
+  }
+
+  table.comments-table {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  @media(min-width: 30em) {
+    /* DESKTOP */
+    .row {
+      width: 100%;
+      display: table;
+      table-layout: fixed;
+    }
+    .col {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .col.w-10 {
+      width: 10%;
+    }
+    .col.w-15 {
+      width: 15%;
+    }
+    .col.w-20 {
+      width: 20%;
+    }
+    .col.w-25 {
+      width: 25%;
+    }
+    .col.w-30 {
+      width: 30%;
+    }
+    .col.w-40 {
+      width: 40%;
+    }
+    .col.w-50 {
+      width: 50%;
+    }
+    .col.w-60 {
+      width: 60%;
+    }
+    .col.w-70 {
+      width: 70%;
+    }
+    .col.w-75 {
+      width: 75%;
+    }
+    .col.w-80 {
+      width: 80%;
+    }
+    .col.w-90 {
+      width: 90%;
+    }
+    .d-hide {
+      display: none !important;
+    }
+    
+  }
+  
