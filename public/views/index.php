@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirigir al login si no está autenticado
+    header("Location: ../public/views/login.php"); // Redirigir al login si no está autenticado
     exit();
 }
 
@@ -11,6 +11,7 @@ $email = htmlspecialchars($_SESSION['email']);
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,9 +30,9 @@ $email = htmlspecialchars($_SESSION['email']);
                     </a>
                 </div>
                 <div class="right">
-                 <form action="../index.php?page=logout" method="post" class="logout-form">
-                    <button class="logout-btn" type="submit" name="submit">LogOut</button>
-                </form>
+                    <form action="../index.php?page=logout" method="post" class="logout-form">
+                        <button class="logout-btn" type="submit" name="submit">LogOut</button>
+                    </form>
                 </div>
             </div>
             <ul class="links">
@@ -50,9 +51,9 @@ $email = htmlspecialchars($_SESSION['email']);
 
                 <div class="col w-40 left">
                     <span itemprop="name">
-                   <h1><?php echo $username?></h1></a>
+                        <h1><?php echo $username ?></h1></a>
                     </span>
-                    
+
                     <div class="general-about">
                         <div class="profile-pic">
                             <img class="pfp-fallback" src="https://static.spacehey.net/img/default/profilepic.png" alt="profile picture">
@@ -75,25 +76,33 @@ $email = htmlspecialchars($_SESSION['email']);
                         <div class="inner">
                             <div class="f-row">
                                 <div class="f-col">
+                                    <a href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/controllers/editController.php" class="btn btn-primary">
+                                        Editar Perfil
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="f-row">
+                                <div class="f-col">
                                     <a href="/addfriend?id=2907759" rel="nofollow">
-                                       Add to Friends
+                                        Add to Friends
                                     </a>
                                 </div>
                             </div>
                             <div class="f-row">
                                 <div class="f-col">
                                     <a href="https://im.spacehey.com?user=2907759" rel="nofollow">
-                                       Send Message
+                                        Send Message
                                     </a>
                                 </div>
-             
-                                
+
+
                             </div>
                             <div class="f-row">
-                               
+
                                 <div class="f-col">
                                     <a href="/block?id=2907759" rel="nofollow">
-                                   Block User
+                                        Block User
                                     </a>
                                 </div>
                             </div>
@@ -103,13 +112,13 @@ $email = htmlspecialchars($_SESSION['email']);
                                         Add to Group
                                     </a>
                                 </div>
-                                
+
                             </div>
                             <div class="f-row">
-                                
+
                                 <div class="f-col">
                                     <a href="/report?type=user&id=2907759" rel="nofollow">
-                                      Report User
+                                        Report User
                                     </a>
                                 </div>
                             </div>
@@ -122,7 +131,7 @@ $email = htmlspecialchars($_SESSION['email']);
                     </div>
                     <div class="table-section">
                         <div class="heading">
-                            <h4><?php echo $username?>´s Interests</h4>
+                            <h4><?php echo $username ?>´s Interests</h4>
                         </div>
                         <div class="inner">
                             <table class="details-table" cellspacing="3" cellpadding="3">
@@ -214,7 +223,7 @@ $email = htmlspecialchars($_SESSION['email']);
                 <div class="col right">
                     <div class="blog-preview">
                         <h4><?php echo $username  ?>'s Latest Blog Entries [<a href="https://blog.spacehey.com/user?id=2907759">View Blog</a>]</h4>
-                      
+
                     </div>
                     <div class="blurbs">
                         <div class="heading">
@@ -294,7 +303,7 @@ $email = htmlspecialchars($_SESSION['email']);
 
                 </div>
             </div>
-       
+
 
 
         </main>

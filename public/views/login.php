@@ -12,7 +12,8 @@
         <h2>Iniciar sesión</h2>
        
         <!-- Formulario de login -->
-        <form action="/entorno-SERVIDOR/hola-mundo/spacehey-clon/controllers/UserController.php?action=login" method="POST">
+        <form action="../../controllers/UserController.php?action=login" method="POST">
+
             <div class="form-group">
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
