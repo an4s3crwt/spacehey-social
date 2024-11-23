@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../../models/editUser.php';
+require_once __DIR__ . '/../../models/editUser.php';
 // Redirigir al login si no está autenticado
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../public/views/login.php");

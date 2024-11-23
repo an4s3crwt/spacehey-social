@@ -12,18 +12,20 @@
   }
   body {
     background-color: #e3e3e3;
-    background-color: var(--gray);
     font-family: verdana, arial, sans-serif, helvetica;
   }
   .container {
-    width: 1200px;
+    width: 810px;
     max-width: 100%;
     margin: 0 auto 10px;
   }
   .container.full-width {
     width: auto;
   }
-
+  details summary {
+    cursor: pointer;
+    user-select: none;
+  }
  
   a {
     color: #000000;
@@ -113,7 +115,7 @@
     background: white;
     color: black; /*letras*/
     padding: 6px 0px;
-    font-size: 100%;
+    font-size: 80%;
   }
   main .left,
   main .right {
@@ -175,6 +177,9 @@
     color: white;
     padding: 2px 7px;
   }
+  .setting-section {
+    margin: 15px 0;
+  }
   .profile .contact .heading h4,
   .profile .table-section .heading h4,
   .profile .blurbs .heading h4,
@@ -200,7 +205,9 @@
     margin: 0;
     word-break: break-all;
   }
-  
+  .profile .url-info.view-full-profile {
+    text-align: center;
+  }
   table.details-table {
     width: 100%;
   }
@@ -218,11 +225,18 @@
     vertical-align: top;
   }
   
-  .details-table td p {
-    margin: 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
+ 
+.details-table.left-big td:first-child {
+  width: unset;
+}
+.details-table.left-big td {
+  width: 33%;
+}
+.details-table td p {
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
   
   .details-table td * {
     max-width: 100%;
@@ -238,6 +252,8 @@
    
     padding: 2px 7px;
   }
+
+
   .blog-entry .comments .heading,
  .comments .heading {
     padding: 10px 7px;
@@ -249,6 +265,22 @@
     word-break: break-word;
   }
  
+.edit-link {
+  font-size: 90%;
+}
+.edit-link.right-side {
+  text-align: right;
+  margin: 3px 5px 4px 5px;
+}
+
+.settings-sessions-table {
+  margin: 10px 0 0 0;
+  width: 100%;
+  text-align: left;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
   
   .logout-btn {
     background: none !important;
@@ -277,14 +309,18 @@
     padding: 7px;
   }
  
-  .profile .blurbs .section {
-    margin-bottom: 14px;
-  }
-  .profile .blurbs .section h4 {
-    margin: 0;
-    color: #000000;
-    
-  }
+ 
+.setting-section .inner p:last-child {
+  margin-bottom: 0;
+}
+.profile .blurbs .section {
+  margin-bottom: 14px;
+}
+.profile .blurbs .section h4 {
+  margin: 0;
+  color: #ED0707;
+  color: var(--dark-orange);
+}
   .profile .blurbs .section p,
   .profile .friends p,
   .blog-entry .comments p,
@@ -321,6 +357,320 @@
     word-break: break-word;
   }
   
+table.comments-table,
+table.music-table,
+table.bulletin-table,
+table.forum-table,
+table.groups-table {
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+table.forum-table,
+table.groups-table,
+table.bulletin-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.forum-table th,
+.forum-table td,
+.groups-table th,
+.groups-table td,
+.bulletin-table th,
+.bulletin-table td {
+  border: 1px solid black;
+  padding: 7px;
+}
+.forum-table th.subject,
+.forum-table td.subject,
+.groups-table th.name,
+.groups-table td.name {
+  width: 100%;
+}
+.groups-table td.name {
+  text-align: left;
+  vertical-align: top;
+}
+.groups-table td.name p {
+  margin: 3px 10px;
+}
+.forum-table th:not(.subject),
+.forum-table td:not(.subject),
+.groups-table th:not(.name),
+.groups-table td:not(.name) {
+  width: auto;
+  white-space: nowrap;
+}
+.comments-table p,
+.music-table p,
+.bulletin-table p,
+.forum-table p,
+.groups-table p {
+  font-size: 100%;
+}
+.bulletin-table .user-info {
+  width: 34%;
+}
+.forum-table .user-info {
+  width: 70px;
+  max-height: 70px;
+  padding: 0;
+}
+.forum-table .user-info .profile-pic {
+  max-width: 70px;
+  max-height: 70px;
+  vertical-align: bottom;
+  /* to hide gap from link */
+}
+.forum-table tr.topic-closed {
+  opacity: 0.8;
+  font-style: italic !important;
+}
+.forum-table th.subject,
+.forum-table td.subject {
+  position: relative;
+}
+.forum-table .pinned {
+  font-size: 0.8em;
+  color: #332c25;
+  margin-top: 2.4px;
+  display: inline-block;
+  font-weight: bold;
+  font-style: italic;
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
+.forum-table .pinned .icon {
+  height: 1.3em;
+  width: 1.3em;
+  vertical-align: top;
+}
+.topic-closed-message {
+  overflow: hidden;
+  text-align: center;
+  color: #545454;
+  color: var(--darker-gray);
+}
+.topic-closed-message h5 {
+  margin: 18px 0 0 0;
+  font-weight: normal;
+}
+.topic-closed-message h3 {
+  margin: 4px 0 27px 0;
+}
+.topic-closed-message a {
+  color: black;
+}
+.groups-table .group-info {
+  width: 90px;
+  max-height: 90px;
+  padding: 0;
+}
+.groups-table .group-info .group-pic {
+  max-width: 90px;
+  max-height: 90px;
+  vertical-align: bottom;
+  /* to hide gap from link */
+}
+.bulletin-table p {
+  margin: 5px 0;
+}
+.bulletin-table:not(.preview) .user-info p {
+  margin: 0 0 5px 0;
+}
+.bulletin-table td.subject {
+  width: 100%;
+}
+.bulletin-table td:not(.subject):not(.user-info) {
+  white-space: nowrap;
+}
+.bulletin-table td {
+  text-align: center;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.forum-table td,
+.groups-table td {
+  text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.forum-table td.reply-count,
+.groups-table td.member-count {
+  font-size: 110%;
+}
+.comments-table td:first-child,
+.music-table td:first-child {
+  background: #f9c56c;
+  background: var(--light-orange);
+  text-align: center;
+  font-weight: bold;
+  width: 38%;
+}
+.comments-table td,
+.music-table td {
+  background: #fcdbb8;
+  background: var(--even-lighter-orange);
+  vertical-align: top;
+}
+.comments-table td:first-child img:not(.icon) {
+  width: 90px;
+  max-width: 100%;
+  max-height: 200px;
+}
+.bulletin-table td:first-child img:not(.icon) {
+  width: 80px;
+  max-width: 100%;
+  max-height: 150px;
+}
+.comments-table td pre,
+.music-table td pre {
+  white-space: pre-wrap;
+}
+.comments-table td *,
+.bulletin-table td * {
+  max-width: 100%;
+}
+.comments-table .report {
+  font-size: 0.7em;
+  float: right;
+  margin: 8px 5px !important;
+}
+.comments-table .pinned {
+  font-size: 0.8em;
+  float: right;
+  color: #332c25;
+  margin-top: 2.4px;
+  font-weight: bold;
+  font-style: italic;
+}
+.comments-table .pinned .icon {
+  height: 1.3em;
+  width: 1.3em;
+  vertical-align: top;
+}
+.music-table .cover {
+  width: 140px;
+  max-width: 100%;
+}
+.music-table .copyright {
+  font-size: 58%;
+  opacity: 0.8;
+}
+.music-table .music-button,
+.featured-playlist .music-button {
+  text-decoration: none;
+}
+.music-table .music-button img,
+.featured-playlist .music-button img {
+  width: 115px;
+  max-width: 100%;
+  display: inline-block;
+}
+.featured-playlist {
+  width: 100%;
+  background: #ffdcba;
+  padding: 6px 10px;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.featured-playlist a {
+  text-decoration: none;
+  color: inherit;
+}
+.featured-playlist .sponsored {
+  margin: -10px 0 5px 0;
+  opacity: 0.5;
+  font-size: 55%;
+}
+.featured-playlist h2,
+.featured-playlist h4 {
+  margin: 5px 0;
+}
+.featured-playlist .text {
+  float: left;
+  margin: 10px 20px 10px 0;
+}
+.featured-playlist .music-button img {
+  float: right;
+  margin: 15px 0 0 0;
+  width: 130px;
+}
+.notification-overview p {
+  margin: 7px;
+  font-weight: bold;
+}
+.notification-overview {
+  border-bottom: 2px solid #60A5FA;
+  border-bottom: 2px solid var(--lighter-blue);
+}
+.notifications-list form {
+  display: inline-block;
+}
+.text-red,
+.text-red a {
+  color: #ED0707;
+  color: var(--dark-orange);
+}
+.text-green,
+.text-green a {
+  color: #059669;
+  color: var(--dark-green);
+}
+.text-yellow,
+.text-yellow a {
+  color: #dbae2e;
+  color: var(--strange-yellow);
+}
+
+.center-container {
+  text-align: center;
+  padding: 20px 10px 40px 10px;
+  margin: 0 auto;
+}
+.center-container img {
+  max-width: 100%;
+}
+
+.home-actions {
+  background: #DBEAFE;
+  background: var(--lightest-blue);
+  font-weight: bold;
+}
+.home-actions .more-options {
+  width: 100%;
+  display: inline-block;
+  padding: 0 5px;
+}
+.statistics {
+  border: 1.4px solid black;
+  text-align: center;
+  font-weight: bold;
+  width: 150px;
+  max-width: 100%;
+  margin: 15px 0;
+}
+.statistics .heading {
+  background: #1E40AF;
+  background: var(--darker-blue);
+  color: white;
+  padding: 2px 7px;
+}
+.user-home .top-row {
+  margin-top: 10px;
+}
+.user-home .blog-preview h4 {
+  margin: 0 0 10px 0;
+}
+.user-home .blog-preview p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.user-home .new-people {
+  margin: 14px 0;
+}
   @media(min-width: 30em) {
     /* DESKTOP */
     .row {

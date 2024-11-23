@@ -1,7 +1,8 @@
 <?php
 // /public/index.php
 
-session_start();  // Iniciar sesión si es necesario
+
+
 
 // Comprobar si ya hay una sesión activa
 
@@ -12,6 +13,7 @@ require_once '../controllers/BlogController.php';  // Controlador de blogs
 
 // Controlar las rutas según el parámetro "page"
 $page = isset($_GET['page']) ? $_GET['page'] : 'index';
+
 
 switch ($page) {
     case 'profile':
@@ -40,6 +42,7 @@ switch ($page) {
         break;
     case 'logout':
         include '../public/views/logout.php';
+
         break;
     default:
         include '../public/views/index.php';
