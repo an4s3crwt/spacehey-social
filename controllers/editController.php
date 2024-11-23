@@ -1,5 +1,6 @@
 <?php
 require '../models/editUser.php';
+require "../models/db.php";
 session_start();
 
 if(!isset($_SESSION['user_id'])){
@@ -23,12 +24,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //mostrar el form para editarperfil
 function showEditProfile(){
     global $user_id;
+    global $db;
 
 
     $user = editUser::getUserData($user_id);
 
-    include '../public/views/editProfile.php';
-}
+     // Recuperar el código CSS personalizado del usuario
+     $stmt = $db->prepare("SELECT code FROM layouts WHERE author = ?");
+     $stmt->bindParam(1, $user_id);
+     $stmt->execute();
+     $layout = $stmt->fetch(PDO::FETCH_ASSOC);
+ 
+     
+     if ($layout) {
+        $css_code = $layout['code'];//el de la base de datos
+        
+     } else {
+         $css_code = "";  // No hay CSS personalizado
+     }
+ 
+     // Incluir la vista del formulario de edición
+     include '../public/views/editProfile.php';
+ }
+
 
 function saveProfile(){
     global $user_id;

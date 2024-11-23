@@ -87,28 +87,7 @@ function loginUser()
         }
     }
 }
-/*
-function showUserProfile()
-{
-    session_start();
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: ../public/views/login.php");
-        exit();
-    }
 
-    // Obtener datos de la sesión y sanitizarlos
-    $username = htmlspecialchars($_SESSION['username']);
-    $email = htmlspecialchars($_SESSION['email']);
-
-    // Reemplazar los datos en la vista
-    $profileDetails = [
-        'username' => $username,
-        'email' => $email
-    ];
-
-
-}
-*/
 
 
 ?>

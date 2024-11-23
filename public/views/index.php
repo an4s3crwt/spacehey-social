@@ -1,12 +1,28 @@
 <?php
 session_start();
+require '../../models/editUser.php';
+// Redirigir al login si no está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../public/views/login.php"); // Redirigir al login si no está autenticado
+    header("Location: ../public/views/login.php");
     exit();
 }
 
+// Obtener datos del usuario de la sesión
 $username = htmlspecialchars($_SESSION['username']);
 $email = htmlspecialchars($_SESSION['email']);
+$user_id = $_SESSION['user_id']; // Asegúrate de usar el user_id de la sesión
+$css_code = isset($_SESSION['css_code']) ? $_SESSION['css_code'] : ''; // CSS desde la sesión
+
+// Cargar el CSS personalizado del usuario
+if (!empty($css_code)) {
+    echo "<style>" . $css_code . "</style>";
+} else {
+    // Si no hay CSS en la sesión, intentar obtenerlo desde la base de datos
+    $user_css_code = editUser::getUserCss($user_id);  // Obtén el código CSS desde la base de datos
+    if ($user_css_code) {
+        echo "<style>" . $user_css_code . "</style>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +33,8 @@ $email = htmlspecialchars($_SESSION['email']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $username; ?>'s Profile</title>
     <link rel="stylesheet" href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/public/assets/css/styles.css">
+    <!-- Si el usuario tiene un código CSS personalizado, lo aplicamos aquí -->
+    
 </head>
 
 

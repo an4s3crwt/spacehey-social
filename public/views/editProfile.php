@@ -24,7 +24,7 @@
         <textarea id="interests" name="interests"><?php echo htmlspecialchars($user['interests']); ?></textarea>
 
         <label for="css_code">Código CSS:</label>
-        <textarea id="css_code" name="css_code"><?php echo htmlspecialchars($user['css_code'] ?? ''); ?></textarea>
+        <textarea id="css_code" name="css_code"><?php echo $css_code ?? ''; ?></textarea>
 
         <button type="submit">Guardar Cambios</button>
 
