@@ -88,5 +88,8 @@ class editUser
 
             $stmt->execute();
         }
+
+            // Actualizar el CSS en la sesión
+    $_SESSION['user_css'] = $css_code;
     }
 }
