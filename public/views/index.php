@@ -55,8 +55,8 @@ if (!empty($css_code)) {
             </div>
             <ul class="links">
                 <li class="active"><a href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/public/views/home.php">Home</a></li>
-                <li class=""><a href="#">Profile</a></li>
-                <li class=""><a href="#">Messages</a></li>
+                <li class=""><a href="../index.php?page=index">Profile</a></li>
+                <li class=""><a href="/entorno-SERVIDOR/hola-mundo/spacehey-clon/public/views/messages.php">Messages</a></li>
                 <li class=""><a href="#">Groups</a></li>
                 <li class=""><a href="#">Contact</a></li>
                 <li class=""><a href="#">About</a></li>
